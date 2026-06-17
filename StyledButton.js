@@ -1,0 +1,38 @@
+import React from 'react';
+
+const StyledButton = () => {
+  const buttonOff = false // Change this to true to see the button disabled
+
+  
+
+  const headingStyle = {
+    color: '#333',
+    fontSize: '24px',
+    marginBottom: '12px',
+  };
+
+  const buttonStyle = {
+    padding: '10px 20px',
+    backgroundColor: buttonOff ? '#ccc' : '#c847b4',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: buttonOff ? 'not-allowed' : 'pointer',
+  };
+
+  return (
+    <div>
+       {/* Add your styled heading here*/}
+      <h1 style={headingStyle}>This is my Styled Heading</h1>
+
+      {/* Add your styled and conditionally disabled button here */}
+
+      <button style={buttonStyle} className="my-react-button" disabled={buttonOff}>
+        {buttonOff ? 'buttonOff' : 'Click me'}
+      </button>
+    </div>
+  );
+};
+
+export default StyledButton;
+
