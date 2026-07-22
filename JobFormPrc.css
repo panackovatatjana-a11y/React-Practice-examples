@@ -1,0 +1,20 @@
+.category-buttons button {
+  padding: 0.5rem 1rem;
+  margin: 0.3rem;
+  border: 1px solid #76c0ae;
+  background: transparent;
+  color: #c2e9e0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.category-buttons button.selected-category {
+  background: #76c0ae;
+  color: #3a2a33;
+  font-weight: bold;
+}
+
+.selected-list {
+  margin-top: 1rem;
+  color: #c2e9e0;
+}
