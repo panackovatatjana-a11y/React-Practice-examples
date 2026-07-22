@@ -204,18 +204,12 @@ li button {
   text-align: center;
 } */
 /* GLOBAL RESET */
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-}
-
-/* MAIN APP WRAPPER */
-.App {
-  width: 100%;
-  min-height: 100vh;
-  background-color: #f7f7f7;
 }
 
 /* HEADER */
@@ -225,21 +219,21 @@ li button {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #ddd;
-  background-color: white;
+  background-color: #fff;
 }
 
 .headertop img {
-  width: 150px;
+  width: 50px;
   height: auto;
+  background-color: #f8f8f8;
 }
 
 /* FORM SECTION */
 .form-header {
-  max-width: 100%;
+  width: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   border-bottom: 1px solid #ccc;
   background-color: #fff;
 }
@@ -252,7 +246,6 @@ li button {
   border-radius: 5px;
   border: 1px solid #ccc;
   margin-bottom: 15px;
-  justify-content: space-evenly;
 }
 
 .bottomline {
@@ -262,25 +255,28 @@ li button {
 }
 
 .tag {
-  background-color: rgb(245, 241, 242);
+  background-color: rgb(229, 237, 248);
   padding: 5px 15px;
   border-radius: 10px;
   font-size: 16px;
+  border: 1px solid black;
 }
 
 .submitdata {
-  background-color: rgb(212, 221, 219);
+  background-color: rgb(225, 244, 239);
   color: rgb(42, 9, 9);
   border-radius: 5px;
   padding: 10px 20px;
   cursor: pointer;
-  border: none;
+  border: 2px solid black;
   font-size: 16px;
   font-weight: 500;
+  align-self: flex-end;
+  width: 150px;
 }
 
-/* JOB STATUS BUTTON */
-.jobStatus {
+/* STATUS SELECT */
+.jobStatusHeader {
   font-size: 16px;
   font-weight: 300;
   border: 2px solid black;
@@ -290,18 +286,16 @@ li button {
   margin-top: 10px;
 }
 
-/* JOB COLUMNS WRAPPER */
-.job-columns {
+/* COLUMNS WRAPPER */
+.jobBox {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-  gap: 20px;
-  padding: 30px 40px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-
 /* SINGLE COLUMN */
-.columns1 {
+.column {
   width: 30%;
   background-color: white;
   padding: 20px;
@@ -309,20 +303,72 @@ li button {
   border: 1px solid #ddd;
   text-align: center;
   box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-  flex:1;
-  min-width:200px;
-  
 }
 
+.column{
+  flex: 1;
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  text-align: center;
+  box-shadow: 0px 2px 6px rgba(0,0,0,0.1);
+  min-height: 350px;
+}
+
+
+/* COLUMN HEADER */
 .hdStatus {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.statusImage {
-  width: 60px;
-  height: 40px;
+/* STATUS ICON */
+.statusImgCs {
+  width: 80px;
+  height: auto;
+}
+
+/* JOB LIST */
+.job-list {
+  margin-top: 15px;
+  list-style: none;
+  padding: 0;
+}
+
+/* JOB ITEM */
+.job-item {
+  background: #f2f2f2;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+/* STATUS COLORS */
+.need-to-complete {
+  background-color: #fff7e6;
+  border-left: 4px solid #f0c14b;
+}
+
+.in-progress {
+  background-color: #e6f0ff;
+  border-left: 4px solid #4a90e2;
+}
+
+.completed {
+  background-color: #e6ffe6;
+  border-left: 4px solid #4caf50;
+}
+
+/* DELETE ICON */
+.deleteIcon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 
 /* FOOTER */
@@ -333,83 +379,66 @@ li button {
   font-size: 14px;
   color: #555;
 }
-.task-boxes {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  gap: 20px;
-}
+
+/* APP WRAPPER */
 .App {
   text-align: center;
-  width: 400px;
+  width: 100%;
+  max-width: 1200px;
   margin: auto;
-  font-family: Arial, sans-serif;
 }
 
-
-.task-boxes {
+.header-func {
+  display: none;
+}
+.job-column {
   display: flex;
   justify-content: space-between;
-  padding: 30px;
-  gap: 20px;
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
+  padding: 0 20px;
 }
-.task-boxes {
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  gap: 20px;
-}
-
-.task-box {
-  background: #fff;
-  border-radius: 10px;
+.job-manager {
   padding: 20px;
-  width: 30%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-.task-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.task-icon {
-  width: 40px;
-  height: 40px;
-}
-
-.task-content {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.simple-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.simple-form input {
+.job-form input,
+.job-form select {
+  margin-bottom: 10px;
   padding: 8px;
-  border: 1px solid #ccc;
 }
 
-.simple-form button {
+.category-buttons button {
+  margin: 5px;
   padding: 8px;
-  border: none;
-  background: black;
-  color: white;
-  cursor: pointer;
+  border: 1px solid #76c0ae;
+  background: transparent;
+  color: #333;
+  border-radius: 6px;
 }
 
-/* JOB LIST */
-.job-list {
+.selected-category {
+  background: #76c0ae;
+  color: #fff;
+}
+
+.columns-container {
+  display: flex;
+  gap: 20px;
   margin-top: 20px;
 }
 
-.job-item {
-  border-bottom: 1px solid #ddd;
-  padding: 8px 0;
+.job-column {
+  flex: 1;
+  background: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.job-card {
+  background: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
 }

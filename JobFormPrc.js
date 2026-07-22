@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import './JobFormPrc.css';
 
-const JobFormPrc = () => {
+const JobFormPrc = ({ addJob }) => {
   const [jobDetails, setJobDetails] = useState({
     title: '',
-    status: 'To Start',
+    status: 'Need to Complete',
     categories: []
   });
 
   const categoryOptions = ['Read Emails', 'Web Parsing', 'Send Emails'];
-
   const [search, setSearch] = useState("");
 
   // Handle text + select inputs
@@ -18,12 +17,11 @@ const JobFormPrc = () => {
     setJobDetails(prev => ({ ...prev, [name]: value }));
   };
 
-  // 1. Toggle category selection (with max 3 limit)
+  // Toggle category selection (with max 3 limit)
   const handleCategoryToggle = (category) => {
     setJobDetails(prev => {
       const alreadySelected = prev.categories.includes(category);
 
-      // BONUS: max 3 categories
       if (!alreadySelected && prev.categories.length >= 3) {
         alert("You can select a maximum of 3 categories.");
         return prev;
@@ -32,13 +30,13 @@ const JobFormPrc = () => {
       return {
         ...prev,
         categories: alreadySelected
-          ? prev.categories.filter(c => c !== category) // remove
-          : [...prev.categories, category] // add
+          ? prev.categories.filter(c => c !== category)
+          : [...prev.categories, category]
       };
     });
   };
 
-  // 6. Clear all categories
+  // Clear all categories
   const clearCategories = () => {
     setJobDetails(prev => ({ ...prev, categories: [] }));
   };
@@ -47,7 +45,6 @@ const JobFormPrc = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 5. Validation
     if (!jobDetails.title.trim()) {
       alert("Please enter a job title.");
       return;
@@ -58,18 +55,18 @@ const JobFormPrc = () => {
       return;
     }
 
-    // 4. Log job details including categories
-    console.log("Submitted job details:", jobDetails);
+    // SEND JOB TO APP.JS
+    addJob(jobDetails);
 
     // Reset form
     setJobDetails({
       title: '',
-      status: 'To Start',
+      status: 'Need to Complete',
       categories: []
     });
   };
 
-  // BONUS: search filter
+  // Search filter
   const filteredCategories = categoryOptions.filter(cat =>
     cat.toLowerCase().includes(search.toLowerCase())
   );
@@ -92,12 +89,12 @@ const JobFormPrc = () => {
         value={jobDetails.status}
         onChange={handleInputChange}
       >
-        <option value="To Start">To Start</option>
+        <option value="Need to Complete">Need to Complete</option>
         <option value="In Progress">In Progress</option>
         <option value="Completed">Completed</option>
       </select>
 
-      {/* BONUS: Search categories */}
+      {/* Search categories */}
       <input
         type="text"
         placeholder="Search categories..."
